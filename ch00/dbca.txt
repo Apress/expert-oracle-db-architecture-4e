@@ -1,0 +1,11 @@
+dbca -silent -createDatabase \
+-templateName General_Purpose.dbc \
+-createAsContainerDatabase true \
+-pdbName PDB -numberOfPDBs 2 \
+-sid CDB -gdbName CDB \
+-characterset AL32UTF8 \
+-sysPassword foo \
+-systemPassword foo \
+-pdbAdminUserName pdbadmin \
+-pdbAdminPassword foo \
+-initParams sga_target=1024M,pga_aggregate_target=512M

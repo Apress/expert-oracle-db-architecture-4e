@@ -1,0 +1,246 @@
+
+TKPROF: Release 19.0.0.0.0 - Development on Mon Jun 14 23:02:15 2021
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+Trace file: /opt/oracle/diag/rdbms/cdb/CDB/trace/CDB_ora_23093.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+********************************************************************************
+
+SQL ID: 2yxfq0vd6r1fm Plan Hash: 0
+
+BEGIN dbms_monitor.session_trace_enable; END;
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           1
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           1
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 106  
+
+Elapsed times include waiting on following events:
+  Event waited on                             Times   Max. Wait  Total Waited
+  ----------------------------------------   Waited  ----------  ------------
+  SQL*Net message to client                       1        0.00          0.00
+  SQL*Net message from client                     1        0.00          0.00
+********************************************************************************
+
+SQL ID: 9babjv8yq8ru3 Plan Hash: 0
+
+BEGIN DBMS_OUTPUT.GET_LINES(:LINES, :NUMLINES); END;
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        3      0.00       0.00          0          0          0           0
+Execute      3      0.00       0.00          0          0          0           3
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        6      0.00       0.00          0          0          0           3
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 106  
+
+Elapsed times include waiting on following events:
+  Event waited on                             Times   Max. Wait  Total Waited
+  ----------------------------------------   Waited  ----------  ------------
+  SQL*Net message to client                       3        0.00          0.00
+  SQL*Net message from client                     3        0.00          0.00
+********************************************************************************
+
+declare
+    l_rec t_hashed%rowtype;
+begin
+    for i in 1 .. state_pkg.g_data.count
+    loop
+        select * into l_rec from t_hashed
+        where object_id = state_pkg.g_data(i);
+    end loop;
+end;
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      2.90       2.91          0          0          0           1
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      2.90       2.91          0          0          0           1
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 106  
+
+Elapsed times include waiting on following events:
+  Event waited on                             Times   Max. Wait  Total Waited
+  ----------------------------------------   Waited  ----------  ------------
+  SQL*Net message to client                       1        0.00          0.00
+  SQL*Net message from client                     1        0.00          0.00
+********************************************************************************
+
+SQL ID: 6wyqvnr7mkbrv Plan Hash: 1450564094
+
+SELECT * 
+FROM
+ T_HASHED WHERE OBJECT_ID = :B1 
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute  67308      0.46       0.49          0          4          0           0
+Fetch    67308      0.40       0.44          0      68158          0       67308
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   134617      0.87       0.94          0      68162          0       67308
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 106     (recursive depth: 1)
+Number of plan statistics captured: 1
+
+Rows (1st) Rows (avg) Rows (max)  Row Source Operation
+---------- ---------- ----------  ---------------------------------------------------
+         1          1          1  TABLE ACCESS HASH T_HASHED (cr=1 pr=0 pw=0 time=46 us starts=1)
+
+********************************************************************************
+
+declare
+    l_rec t_heap%rowtype;
+begin
+    for i in 1 .. state_pkg.g_data.count
+    loop
+        select * into l_rec from t_heap
+        where object_id = state_pkg.g_data(i);
+    end loop;
+end;
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      3.30       3.36          0          0          0           1
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      3.30       3.36          0          0          0           1
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 106  
+
+Elapsed times include waiting on following events:
+  Event waited on                             Times   Max. Wait  Total Waited
+  ----------------------------------------   Waited  ----------  ------------
+  SQL*Net message to client                       1        0.00          0.00
+  SQL*Net message from client                     1        0.00          0.00
+********************************************************************************
+
+SQL ID: b6syrq5gcw169 Plan Hash: 2815550882
+
+SELECT * 
+FROM
+ T_HEAP WHERE OBJECT_ID = :B1 
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute  67308      0.65       0.65          0          0          0           0
+Fetch    67308      0.58       0.64          0     201924          0       67308
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   134617      1.24       1.30          0     201924          0       67308
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 106     (recursive depth: 1)
+Number of plan statistics captured: 1
+
+Rows (1st) Rows (avg) Rows (max)  Row Source Operation
+---------- ---------- ----------  ---------------------------------------------------
+         1          1          1  TABLE ACCESS BY INDEX ROWID T_HEAP (cr=3 pr=0 pw=0 time=25 us starts=1 cost=2 size=104 card=1)
+         1          1          1   INDEX UNIQUE SCAN T_HEAP_PK (cr=2 pr=0 pw=0 time=14 us starts=1 cost=1 size=0 card=1)(object id 74720)
+
+********************************************************************************
+
+SQL ID: 6fu71su6f01fd Plan Hash: 0
+
+BEGIN dbms_monitor.session_trace_disable; END;
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           1
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           1
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 106  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        6      0.00       0.00          0          0          0           0
+Execute      7      6.20       6.28          0          0          0           7
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total       13      6.20       6.28          0          0          0           7
+
+Misses in library cache during parse: 0
+
+Elapsed times include waiting on following events:
+  Event waited on                             Times   Max. Wait  Total Waited
+  ----------------------------------------   Waited  ----------  ------------
+  SQL*Net message to client                       6        0.00          0.00
+  SQL*Net message from client                     6        0.00          0.00
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        2      0.00       0.00          0          0          0           0
+Execute 134616      1.11       1.15          0          4          0           0
+Fetch   134616      0.99       1.09          0     270082          0      134616
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   269234      2.11       2.24          0     270086          0      134616
+
+Misses in library cache during parse: 2
+
+    7  user  SQL statements in session.
+    0  internal SQL statements in session.
+    7  SQL statements in session.
+********************************************************************************
+Trace file: /opt/oracle/diag/rdbms/cdb/CDB/trace/CDB_ora_23093.trc
+Trace file compatibility: 12.2.0.0
+Sort options: default
+
+       1  session in tracefile.
+       7  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+       7  SQL statements in trace file.
+       7  unique SQL statements in trace file.
+  403971  lines in trace file.
+       8  elapsed seconds in trace file.
+
+

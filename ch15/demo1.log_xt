@@ -1,0 +1,266 @@
+
+
+ LOG file opened at 05/26/21 19:51:06
+
+Total Number of Files=1
+
+Data File: demo1.ctl
+
+Log File: demo1.log_xt
+
+
+
+ LOG file opened at 05/26/21 19:51:06
+
+Bad File: demo1.bad
+
+Field Definitions for table SYS_SQLLDR_X_EXT_DEPT
+  Record format DELIMITED BY NEWLINE
+  Data in file has same endianness as the platform
+  Reject rows with all null fields
+
+  Fields in Data Source: 
+
+    DEPTNO                          CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    DNAME                           CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    LOC                             CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+
+
+ LOG file opened at 05/26/21 19:52:48
+
+Total Number of Files=1
+
+Data File: demo1.ctl
+
+Log File: demo1.log_xt
+
+
+
+ LOG file opened at 05/26/21 19:52:48
+
+Bad File: demo1.bad
+
+Field Definitions for table SYS_SQLLDR_X_EXT_DEPT
+  Record format DELIMITED BY NEWLINE
+  Data in file has same endianness as the platform
+  Reject rows with all null fields
+
+  Fields in Data Source: 
+
+    DEPTNO                          CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    DNAME                           CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    LOC                             CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+
+
+ LOG file opened at 05/26/21 20:02:56
+
+Total Number of Files=1
+
+Data File: demo1.ctl
+
+Log File: demo1.log_xt
+
+
+
+ LOG file opened at 05/26/21 20:02:56
+
+Bad File: demo1.bad
+
+Field Definitions for table SYS_SQLLDR_X_EXT_DEPT
+  Record format DELIMITED BY NEWLINE
+  Data in file has same endianness as the platform
+  Reject rows with all null fields
+
+  Fields in Data Source: 
+
+    DEPTNO                          CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    DNAME                           CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    LOC                             CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+error processing column DEPTNO in row 11 for datafile /home/oracle/aArch/scripts/ch15/demo1.ctl
+ORA-01722: invalid number
+
+
+ LOG file opened at 05/26/21 20:05:04
+
+Total Number of Files=1
+
+Data File: demo1.ctl
+
+Log File: demo1.log_xt
+
+
+
+ LOG file opened at 05/26/21 20:05:04
+
+Bad File: demo1.bad
+
+Field Definitions for table SYS_SQLLDR_X_EXT_DEPT
+  Record format DELIMITED BY NEWLINE
+  Data in file has same endianness as the platform
+  Reject rows with all null fields
+
+  Fields in Data Source: 
+
+    DEPTNO                          CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    DNAME                           CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    LOC                             CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+error processing column DEPTNO in row 11 for datafile /home/oracle/aArch/scripts/ch15/demo1.ctl
+ORA-01722: invalid number
+
+
+ LOG file opened at 05/26/21 20:05:11
+
+Total Number of Files=1
+
+Data File: demo1.ctl
+
+Log File: demo1.log_xt
+
+
+
+ LOG file opened at 05/26/21 20:05:11
+
+Bad File: demo1.bad
+
+Field Definitions for table SYS_SQLLDR_X_EXT_DEPT
+  Record format DELIMITED BY NEWLINE
+  Data in file has same endianness as the platform
+  Reject rows with all null fields
+
+  Fields in Data Source: 
+
+    DEPTNO                          CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    DNAME                           CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    LOC                             CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+error processing column DEPTNO in row 11 for datafile /home/oracle/aArch/scripts/ch15/demo1.ctl
+ORA-01722: invalid number
+
+
+ LOG file opened at 05/26/21 20:05:34
+
+Total Number of Files=1
+
+Data File: demo1.ctl
+
+Log File: demo1.log_xt
+
+
+
+ LOG file opened at 05/26/21 20:05:34
+
+Bad File: demo1.bad
+
+Field Definitions for table SYS_SQLLDR_X_EXT_DEPT
+  Record format DELIMITED BY NEWLINE
+  Data in file has same endianness as the platform
+  Reject rows with all null fields
+
+  Fields in Data Source: 
+
+    DEPTNO                          CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    DNAME                           CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    LOC                             CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+
+
+ LOG file opened at 05/26/21 20:05:41
+
+Total Number of Files=1
+
+Data File: demo1.ctl
+
+Log File: demo1.log_xt
+
+
+
+ LOG file opened at 05/26/21 20:05:42
+
+Bad File: demo1.bad
+
+Field Definitions for table SYS_SQLLDR_X_EXT_DEPT
+  Record format DELIMITED BY NEWLINE
+  Data in file has same endianness as the platform
+  Reject rows with all null fields
+
+  Fields in Data Source: 
+
+    DEPTNO                          CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    DNAME                           CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    LOC                             CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+error processing column DEPTNO in row 11 for datafile /home/oracle/aArch/scripts/ch15/demo1.ctl
+ORA-01722: invalid number
+
+
+ LOG file opened at 05/26/21 20:08:04
+
+Total Number of Files=1
+
+Data File: demo2.ctl
+
+Log File: demo1.log_xt
+
+
+
+ LOG file opened at 05/26/21 20:08:04
+
+Bad File: demo1.bad
+
+Field Definitions for table SYS_SQLLDR_X_EXT_DEPT
+  Record format DELIMITED BY NEWLINE
+  Data in file has same endianness as the platform
+  Reject rows with all null fields
+
+  Fields in Data Source: 
+
+    DEPTNO                          CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    DNAME                           CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+    LOC                             CHAR (255)
+      Terminated by ","
+      Trim whitespace same as SQL Loader
+error processing column DEPTNO in row 11 for datafile /home/oracle/aArch/scripts/ch15/demo2.ctl
+ORA-01722: invalid number

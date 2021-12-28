@@ -1,0 +1,195 @@
+
+TKPROF: Release 19.0.0.0.0 - Development on Mon Jul 5 03:01:52 2021
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+Trace file: /opt/oracle/diag/rdbms/cdb/CDB/trace/CDB_ora_24216.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+********************************************************************************
+
+declare
+          cnt int;
+  begin
+    for x in ( select /*+FULL(t)*/ owner, object_type, object_name from t )
+    loop
+         select /*+ INDEX( t t_idx_1 ) */ count(*) into cnt
+           from t
+          where object_name = x.object_name
+            and object_type = x.object_type
+            and owner = x.owner;
+
+          select /*+ INDEX( t t_idx_2 ) */ count(*) into cnt
+           from t
+          where object_name = x.object_name
+           and object_type = x.object_type
+           and owner = x.owner;
+    end loop;
+end;
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      7.47       7.58          0          0          0           1
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      7.47       7.58          0          0          0           1
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 106  
+********************************************************************************
+
+SQL ID: g4j1fw8gc47u8 Plan Hash: 1601196873
+
+SELECT /*+FULL(t)*/ OWNER, OBJECT_TYPE, OBJECT_NAME 
+FROM
+ T 
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      674      0.08       0.07          0       1988          0       67335
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      676      0.08       0.07          0       1988          0       67335
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 106     (recursive depth: 1)
+Number of plan statistics captured: 1
+
+Rows (1st) Rows (avg) Rows (max)  Row Source Operation
+---------- ---------- ----------  ---------------------------------------------------
+     67335      67335      67335  TABLE ACCESS FULL T (cr=1988 pr=0 pw=0 time=54110 us starts=1 cost=369 size=3434085 card=67335)
+
+********************************************************************************
+
+SQL ID: dnjdfswzupvzh Plan Hash: 3814365591
+
+SELECT /*+ INDEX( t t_idx_1 ) */ COUNT(*) 
+FROM
+ T WHERE OBJECT_NAME = :B3 AND OBJECT_TYPE = :B2 AND OWNER = :B1 
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute  67335      0.77       0.83          0          0          1           0
+Fetch    67335      0.49       0.56          0     202677          0       67335
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   134671      1.26       1.39          0     202677          1       67335
+
+Misses in library cache during parse: 1
+Misses in library cache during execute: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 106     (recursive depth: 1)
+Number of plan statistics captured: 1
+
+Rows (1st) Rows (avg) Rows (max)  Row Source Operation
+---------- ---------- ----------  ---------------------------------------------------
+         1          1          1  SORT AGGREGATE (cr=3 pr=0 pw=0 time=34 us starts=1)
+         1          1          1   INDEX RANGE SCAN T_IDX_1 (cr=3 pr=0 pw=0 time=26 us starts=1 cost=3 size=51 card=1)(object id 75107)
+
+********************************************************************************
+
+SQL ID: 7z9rq8u4nh9c3 Plan Hash: 1402434811
+
+SELECT /*+ INDEX( t t_idx_2 ) */ COUNT(*) 
+FROM
+ T WHERE OBJECT_NAME = :B3 AND OBJECT_TYPE = :B2 AND OWNER = :B1 
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute  67335      0.83       0.83          0          0          0           0
+Fetch    67335      0.48       0.55          0     202676          0       67335
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   134671      1.31       1.39          0     202676          0       67335
+
+Misses in library cache during parse: 1
+Misses in library cache during execute: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 106     (recursive depth: 1)
+Number of plan statistics captured: 1
+
+Rows (1st) Rows (avg) Rows (max)  Row Source Operation
+---------- ---------- ----------  ---------------------------------------------------
+         1          1          1  SORT AGGREGATE (cr=3 pr=0 pw=0 time=34 us starts=1)
+         1          1          1   INDEX RANGE SCAN T_IDX_2 (cr=3 pr=0 pw=0 time=27 us starts=1 cost=3 size=51 card=1)(object id 75108)
+
+********************************************************************************
+
+SQL ID: aam2chsgpj7mb Plan Hash: 0
+
+alter session set sql_trace=false
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Parsing user id: 106  
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        2      0.00       0.00          0          0          0           0
+Execute      2      7.47       7.58          0          0          0           1
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        4      7.47       7.58          0          0          0           1
+
+Misses in library cache during parse: 1
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        5      0.00       0.00          0          0          0           0
+Execute 134674      1.61       1.67          0          2          5           1
+Fetch   135346      1.06       1.19          1     407344          0      202007
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   270025      2.67       2.86          1     407346          5      202008
+
+Misses in library cache during parse: 5
+Misses in library cache during execute: 4
+
+    5  user  SQL statements in session.
+    2  internal SQL statements in session.
+    7  SQL statements in session.
+********************************************************************************
+Trace file: /opt/oracle/diag/rdbms/cdb/CDB/trace/CDB_ora_24216.trc
+Trace file compatibility: 12.2.0.0
+Sort options: default
+
+       1  session in tracefile.
+       5  user  SQL statements in trace file.
+       2  internal SQL statements in trace file.
+       7  SQL statements in trace file.
+       7  unique SQL statements in trace file.
+  404809  lines in trace file.
+      10  elapsed seconds in trace file.
+
+

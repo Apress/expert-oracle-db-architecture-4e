@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/find $* -name "*.gz" -exec /bin/zcat {} \; | /usr/bin/cut -f1 -d,

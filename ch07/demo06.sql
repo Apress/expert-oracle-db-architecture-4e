@@ -1,0 +1,26 @@
+-- Seeing a Restart, third example
+
+drop table t purge;
+
+set echo on
+
+create table t ( x int, y int );
+insert into t values ( 1, 1 );
+commit;
+
+create or replace trigger t_bufer
+  before update on t for each row
+  begin
+          dbms_output.put_line( 'fired' );
+  end;
+/
+
+update t set x = x+1;
+
+set echo off
+prompt in another session:
+prompt set serveroutput on
+prompt update t set x = x+1 where y > 0;;
+pause
+set echo on
+commit;
